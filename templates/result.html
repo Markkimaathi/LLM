@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scraping Result</title>
+</head>
+<body>
+    <h1>Scraping Result</h1>
+    <h2>Paragraphs</h2>
+    <ul>
+        {% for para in data.paragraphs %}
+            <li>{{ para }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Links</h2>
+    <ul>
+        {% for link in data.links %}
+            <li><a href="{{ link }}">{{ link }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <h2>Tables</h2>
+    {% for table in data.tables %}
+        <table border="1">
+            {% for row in table %}
+                <tr>
+                    {% for col in row %}
+                        <td>{{ col }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+        <br>
+    {% endfor %}
+
+    <h2>Lists</h2>
+    {% for lst in data.lists %}
+        <ul>
+            {% for item in lst %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+
+    <a href="/">Go back</a>
+</body>
+</html>
